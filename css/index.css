@@ -1,0 +1,33 @@
+*{
+    margin: 0;
+}
+.contenedor{
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+}
+/*Navegacion principal*/
+.main-nav{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(min(100%,10em),1fr));
+
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+
+    border: solid black 1px;
+    height: 50px;
+    background-color: lightcoral;
+}
+.main-ul{
+    display: flex;
+    
+
+    
+
+}
+.main-nav li{
+    list-style: none;
+    padding: 0 10px;
+}
+
