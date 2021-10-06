@@ -1,6 +1,18 @@
 const btnGetApi = document.querySelector('#get-api');
 const divFotos20Pokemon = document.querySelector('.primeros-veinte_fotos');
 
+const fragment = document.createDocumentFragment();
+
+
+const  getContainerImg=(pSrc)=>{
+
+    let content =   `<div>
+                        <img = ${pSrc}>
+                    </div>`;
+    
+    fragment.appendChild(content);
+}
+
 const getApi = async pURL => {
     const info = await axios({
         method: 'GET',
@@ -19,20 +31,32 @@ btnGetApi.addEventListener('click', () => {
             let pokemons = res.data;
             console.log(pokemons);
 
-            const fragment = document.createDocumentFragment();
 
-            pokemons.results.forEach(element => {
-                // console.log(element);
-                const img = document.createElement('img');
+            // pokemons.results.forEach(element => {
+            //     // console.log(element);
+            //     const img = document.createElement('img');
 
+            //     getApi(element.url)
+            //         .then(res => {
+            //             console.log(res);
+            //              img.src = res.data.sprites.front_default; 
+            //              img.setAttribute('class','foto_pokemon');
+            //         })
+            //     fragment.appendChild(img);
+            // });
+            pokemons.results.forEach(element=>{
+                
                 getApi(element.url)
-                    .then(res => {
+                    .then(res=>{
                         console.log(res);
-                         img.src = res.data.sprites.front_default; 
-                         img.setAttribute('class','foto_pokemon');
+                        getContainerImg(res.data);
+
                     })
-                fragment.appendChild(img);
-            });
+
+                 
+                
+            })
+
             divImg.appendChild(fragment);
             
 
@@ -41,3 +65,4 @@ btnGetApi.addEventListener('click', () => {
             console.log(error);
         })
 });
+
