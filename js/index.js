@@ -3,16 +3,6 @@ const divFotos20Pokemon = document.querySelector('.primeros-veinte_fotos');
 
 const fragment = document.createDocumentFragment();
 
-
-const  getContainerImg=(pSrc)=>{
-
-    let content =   `<div>
-                        <img = ${pSrc}>
-                    </div>`;
-    
-    fragment.appendChild(content);
-}
-
 const getApi = async pURL => {
     const info = await axios({
         method: 'GET',
@@ -24,42 +14,42 @@ const getApi = async pURL => {
 btnGetApi.addEventListener('click', () => {
     //Entendi que para manejo de errores con el catch se pueden manejar
     const divImg = document.querySelector('.primeros-veinte_fotos');
+
     getApi('https://pokeapi.co/api/v2/pokemon')
+
         .then(res => {
-            // console.log(res)
-            // console.log(res.data)
-            let pokemons = res.data;
+            let pokemons = [...res.data.results]
             console.log(pokemons);
 
+            const fragment = document.createDocumentFragment();
 
-            // pokemons.results.forEach(element => {
-            //     // console.log(element);
-            //     const img = document.createElement('img');
+            pokemons.forEach(element =>{
 
-            //     getApi(element.url)
-            //         .then(res => {
-            //             console.log(res);
-            //              img.src = res.data.sprites.front_default; 
-            //              img.setAttribute('class','foto_pokemon');
-            //         })
-            //     fragment.appendChild(img);
-            // });
-            pokemons.results.forEach(element=>{
-                
+                console.log(element);
+                const divImg = document.createElement('div');
+                const imgPokemon = document.createElement('img');
+                const spanImg = document.createElement('span');
+
                 getApi(element.url)
-                    .then(res=>{
-                        console.log(res);
-                        getContainerImg(res.data);
+                    .then(result=>{
+                        console.log(result);
+                        divImg.className = 'hola';
+                        spanImg.textContent = result.data.name;
+                        imgPokemon.src = result.data.sprites.front_default;
+                        
+                    })
+                    .catch(error=>{
+                        console.log(error);
 
                     })
-
-                 
-                
+                    divImg.appendChild(spanImg);
+                    divImg.appendChild(imgPokemon);
+                    fragment.appendChild(divImg);   
             })
 
-            divImg.appendChild(fragment);
+           
             
-
+            divImg.appendChild(fragment);
         })
         .catch(error => {
             console.log(error);

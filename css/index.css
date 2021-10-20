@@ -36,8 +36,8 @@
 .primeros-veinte_fotos{
    display: grid;
    grid-template-columns: repeat(auto-fill,minmax(min(100%,5rem),1fr));
-   overflow:auto;
-   max-height: 300px;
+   /* overflow:auto; */
+   
    
    /* grid-auto-rows: 50%;  */
 }
