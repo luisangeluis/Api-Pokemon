@@ -19,21 +19,21 @@ btnGetApi.addEventListener('click', () => {
 
         .then(res => {
             let pokemons = [...res.data.results]
-            console.log(pokemons);
+            // console.log(pokemons);
 
             const fragment = document.createDocumentFragment();
 
             pokemons.forEach(element =>{
 
-                console.log(element);
+                // console.log(element);
                 const divImg = document.createElement('div');
                 const imgPokemon = document.createElement('img');
                 const spanImg = document.createElement('span');
 
                 getApi(element.url)
                     .then(result=>{
-                        console.log(result);
-                        divImg.className = 'hola';
+                        // console.log(result);
+                        divImg.className = 'div-img';
                         spanImg.textContent = result.data.name;
                         imgPokemon.src = result.data.sprites.front_default;
                         
@@ -42,8 +42,9 @@ btnGetApi.addEventListener('click', () => {
                         console.log(error);
 
                     })
-                    divImg.appendChild(spanImg);
                     divImg.appendChild(imgPokemon);
+                    divImg.appendChild(spanImg);
+
                     fragment.appendChild(divImg);   
             })
 
@@ -55,4 +56,14 @@ btnGetApi.addEventListener('click', () => {
             console.log(error);
         })
 });
+/*Evento click a los primeros 20 pokemon*/
+
+divFotos20Pokemon.addEventListener('click',(e)=>{
+    console.log(e);
+    if(e.target && e.target.className == 'div-img' ){
+        console.log('es una div');
+    }else{
+        console.log('no es un div');
+    }
+})
 

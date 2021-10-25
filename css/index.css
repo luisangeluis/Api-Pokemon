@@ -35,15 +35,28 @@
 
 .primeros-veinte_fotos{
    display: grid;
-   grid-template-columns: repeat(auto-fill,minmax(min(100%,5rem),1fr));
+   grid-template-columns: repeat(auto-fill,minmax(min(100%,7rem),1fr));
    /* overflow:auto; */
    
    
    /* grid-auto-rows: 50%;  */
 }
 
-.foto_pokemon{
+.div-img{
+    
+    justify-content: center;
+    text-align: center;
+    align-content: center;
+    /*align-items: center;*/
+    margin: 0 10px;
+    position: relative;
+    z-index: 2;
+}
+.div-img img{
     width: 100%;
 }
+
+/*
+*/
 
 
