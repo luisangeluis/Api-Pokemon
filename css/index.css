@@ -56,6 +56,14 @@
     width: 100%;
 }
 
+.modal-ventana{
+    display: none;
+}
+
+.d-block{
+    display: block;
+}
+
 /*
 */
 

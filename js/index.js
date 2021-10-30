@@ -19,7 +19,7 @@ btnGetApi.addEventListener('click', () => {
 
         .then(res => {
             let pokemons = [...res.data.results]
-            // console.log(pokemons);
+            console.log(pokemons);
 
             const fragment = document.createDocumentFragment();
 
@@ -59,11 +59,21 @@ btnGetApi.addEventListener('click', () => {
 /*Evento click a los primeros 20 pokemon*/
 
 divFotos20Pokemon.addEventListener('click',(e)=>{
-    console.log(e);
-    if(e.target && e.target.className == 'div-img' ){
-        console.log('es una div');
+    // console.log(e);
+    let element = e;
+    if(element.target && element.target.localName == 'img' ){
+        console.log(element);
+        let nombrePokemon = element.target.nextSibling.textContent;
+        getApi(`https://pokeapi.co/api/v2/pokemon/${nombrePokemon}`)
+
+            .then(result =>{
+                console.log(result);
+            }).catch(error => console.log(error.message))
+        const primerosVeinte = document.querySelector('.primeros-veinte');
+        primerosVeinte.querySelector('.modal-ventana').classList.add('d-block');
+        
     }else{
-        console.log('no es un div');
+        // console.log('no es un img');
     }
 })
 
