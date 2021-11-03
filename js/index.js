@@ -62,15 +62,23 @@ divFotos20Pokemon.addEventListener('click',(e)=>{
     // console.log(e);
     let element = e;
     if(element.target && element.target.localName == 'img' ){
+
         console.log(element);
+
         let nombrePokemon = element.target.nextSibling.textContent;
+
         getApi(`https://pokeapi.co/api/v2/pokemon/${nombrePokemon}`)
 
             .then(result =>{
                 console.log(result);
+
+                const primerosVeinte = document.querySelector('.primeros-veinte');
+                const modal = primerosVeinte.querySelector('.modal-ventana');
+                
+                modal.classList.add('d-block');
+                modal.firstElementChild.src = result.data.sprites.front_default;
+
             }).catch(error => console.log(error.message))
-        const primerosVeinte = document.querySelector('.primeros-veinte');
-        primerosVeinte.querySelector('.modal-ventana').classList.add('d-block');
         
     }else{
         // console.log('no es un img');
