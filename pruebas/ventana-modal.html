@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ventana modal</title>
+
+    <style>
+        .ventana-modal{
+            display: none;
+            position:fixed;
+            z-index: 2;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+            background-color: rgb(33,37,41);
+            opacity: .8;
+        }
+
+        .ventana-modal .ventana-modal_content{
+            
+            background-color: white;
+            width: 50%;
+            height: 50%;
+            align-self: center;            
+            margin: 0 auto;
+            padding: 0 1em;
+            text-align: center;
+        
+            
+        }   
+
+        .d-flex{
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <h1>ventana modal</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate maiores optio eum officiis quae quisquam ducimus sequi inventore corrupti commodi!</p>
+    <button id='show-ventana'>Mostrar Ventana</button>    
+
+    <div class="ventana-modal">
+        <div class="ventana-modal_content">
+            <p>Lorem ipsum dolor sit amet.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, animi.</p>
+        </div>
+    </div>
+    
+    <script>
+        btnShowVentana = document.querySelector('#show-ventana');
+        ventanaModal = document.querySelector('.ventana-modal');
+
+        btnShowVentana.addEventListener('click',()=>{
+            console.log('hola');
+            ventanaModal.classList.add('d-flex');
+            
+        })
+    </script>
+</body>
+</html>
