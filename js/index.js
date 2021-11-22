@@ -75,8 +75,8 @@ divFotos20Pokemon.addEventListener('click',(e)=>{
                 const primerosVeinte = document.querySelector('.primeros-veinte');
                 const modal = primerosVeinte.querySelector('.modal-ventana');
                 
-                modal.classList.add('d-block');
-                modal.firstElementChild.src = result.data.sprites.front_default;
+                modal.classList.add('d-flex');
+                modal.firstElementChild.firstElementChild.src = result.data.sprites.front_default;
 
             }).catch(error => console.log(error.message))
         
@@ -84,4 +84,13 @@ divFotos20Pokemon.addEventListener('click',(e)=>{
         // console.log('no es un img');
     }
 })
+
+btnCloseModal = document.querySelector('.close-modal');
+
+btnCloseModal.addEventListener('click', () => {
+
+    if (btnCloseModal.parentNode.parentNode.classList.contains('d-flex')) {
+        btnCloseModal.parentNode.parentNode.classList.remove('d-flex')
+    }
+});
 

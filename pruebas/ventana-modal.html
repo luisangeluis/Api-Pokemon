@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,9 +8,9 @@
     <title>Ventana modal</title>
 
     <style>
-        .ventana-modal{
+        .ventana-modal {
             display: none;
-            position:fixed;
+            position: fixed;
             z-index: 2;
             top: 0;
             left: 0;
@@ -18,49 +19,96 @@
             justify-content: center;
             align-items: center;
             align-content: center;
-            background-color: rgb(33,37,41);
-            opacity: .8;
+            background-color: rgba(33, 37, 41, .8);
         }
 
-        .ventana-modal .ventana-modal_content{
-            
+        .ventana-modal .ventana-modal_content {
             background-color: white;
-            width: 50%;
+            width: 70%;
             height: 50%;
-            align-self: center;            
+            align-self: center;
             margin: 0 auto;
             padding: 0 1em;
             text-align: center;
-        
-            
-        }   
+        }
 
-        .d-flex{
+        .d-flex {
             display: flex;
+        }
+
+        .d-none {
+            display: none;
         }
     </style>
 </head>
-<body>
-    <h1>ventana modal</h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate maiores optio eum officiis quae quisquam ducimus sequi inventore corrupti commodi!</p>
-    <button id='show-ventana'>Mostrar Ventana</button>    
 
-    <div class="ventana-modal">
-        <div class="ventana-modal_content">
-            <p>Lorem ipsum dolor sit amet.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, animi.</p>
+<body>
+    <main class="contenedor main">
+        <h1>ventana modal</h1>
+        <div class="contenedor">
+            <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cupiditate, atque?
+            </p>
         </div>
-    </div>
-    
+        <button id='show-ventana' class="show-ventana">Mostrar Ventana</button>
+
+        <div class="contenedor">
+            <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cupiditate, atque?
+            </p>
+        </div>
+        <button id='show-ventana' class="show-ventana">Mostrar Ventana</button>
+
+        <div class="contenedor">
+            <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cupiditate, atque?
+            </p>
+        </div>
+        <button id='show-ventana' class="show-ventana">Mostrar Ventana</button>
+
+        <div class="contenedor">
+            <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cupiditate, atque?
+            </p>
+        </div>
+        <button id='show-ventana' class="show-ventana">Mostrar Ventana</button>
+
+
+        <div class="ventana-modal">
+            <div class="ventana-modal_content">
+                <p>Lorem ipsum dolor sit amet.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, animi.</p>
+                <button class="close-modal">Cerrar</button>
+            </div>
+        </div>
+    </main>
+
+
     <script>
+        mainContenedor = document.querySelector('.contenedor.main');
+
         btnShowVentana = document.querySelector('#show-ventana');
         ventanaModal = document.querySelector('.ventana-modal');
+        btnCloseModal = document.querySelector('.close-modal');
+        
+        mainContenedor.addEventListener('click',(e)=>{
+            let event = e;
+            if(event.target && event.target.localName =='button' && event.target.classList.contains('show-ventana')){
+                ventanaModal.classList.add('d-flex');
 
-        btnShowVentana.addEventListener('click',()=>{
-            console.log('hola');
-            ventanaModal.classList.add('d-flex');
-            
-        })
+
+            }
+        });
+        
+        btnCloseModal.addEventListener('click', () => {
+
+            if (btnCloseModal.parentNode.parentNode.classList.contains('d-flex')) {
+                btnCloseModal.parentNode.parentNode.classList.remove('d-flex')
+            }
+        });
+
+
     </script>
 </body>
+
 </html>
