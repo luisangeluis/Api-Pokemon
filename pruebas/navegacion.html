@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>navegacion</title>
+
+
+    <style>
+        .contenedor {
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .nav {
+
+
+            background-color: lightgray;
+            min-height: 10em;
+
+        }
+
+        /*navegacion principal*/
+        .nav .contenedor {
+            display: flex;
+            justify-content: space-between;
+
+        }
+
+        .nav_ul {
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        /* .nav_ul-right {
+            display: flex;
+            justify-content: flex-end;
+        } */
+
+        .nav_titulo {
+            text-align: center;
+        }
+
+        .nav_ul li,
+        .nav_ul-right li {
+            list-style: none;
+            padding: 0 .2em;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="nav">
+        <div class="contenedor">
+            <div style="display: flex;">
+                <h1 class="nav_titulo">Menu de navegacion</h1>
+                <ul class="nav_ul">
+                    <li>opcion 1</li>
+                    <li>opcion 2</li>
+                    <li>opcion 3</li>
+                    <li>opcion 4</li>
+                </ul>
+            </div>
+            
+            <ul class="nav_ul">
+                <li>opcion 4</li>
+                <li>opcion 5</li>
+                <li>opcion 6</li>
+            </ul>
+        </div>
+    </nav>
+</body>
+
+</html>
