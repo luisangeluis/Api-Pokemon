@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -9,6 +9,10 @@
 
 
     <style>
+        * {
+            margin: 0;
+        }
+
         .contenedor {
             width: 80%;
             margin-left: auto;
@@ -16,62 +20,91 @@
         }
 
         .nav {
-
-
+            position: relative;
             background-color: lightgray;
-            min-height: 10em;
+        }
 
+        ul {
+            padding: 0;
         }
 
         /*navegacion principal*/
         .nav .contenedor {
             display: flex;
-            justify-content: space-between;
+            /* flex-wrap: wrap; */
+            height: 5em;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
 
         }
-
-        .nav_ul {
-            display: flex;
-            justify-content: flex-start;
-        }
-
-        /* .nav_ul-right {
-            display: flex;
-            justify-content: flex-end;
-        } */
 
         .nav_titulo {
             text-align: center;
         }
 
+        .nav_ul,
+        .nav_ul-right {
+            display: flex;
+            margin: 0 1em;
+            
+
+        }
         .nav_ul li,
         .nav_ul-right li {
             list-style: none;
             padding: 0 .2em;
+
         }
+
+        .nav_ul {
+            margin-right: auto;
+        }
+
+        .nav_ul-right {
+            margin-left: auto;
+        }
+
+        /*Menor a 850 px*/
+
+        @media screen and (max-width: 850px) {
+            .nav_ul,
+            .nav_ul-right {
+                display: none;
+
+                margin: 0 1em;
+            }
+
+            .d-none{
+                display: none;
+
+            }
+        }
+
+
     </style>
 </head>
 
 <body>
+
     <nav class="nav">
         <div class="contenedor">
-            <div style="display: flex;">
-                <h1 class="nav_titulo">Menu de navegacion</h1>
-                <ul class="nav_ul">
-                    <li>opcion 1</li>
-                    <li>opcion 2</li>
-                    <li>opcion 3</li>
-                    <li>opcion 4</li>
-                </ul>
-            </div>
-            
+            <h1 class="nav_titulo">Menu de navegacion</h1>
             <ul class="nav_ul">
+                <li>opcion 1</li>
+                <li>opcion 2</li>
+                <li>opcion 3</li>
                 <li>opcion 4</li>
+            </ul>
+            <ul class="nav_ul-right">
                 <li>opcion 5</li>
                 <li>opcion 6</li>
+                <li>opcion 7</li>
             </ul>
+            <button></button>
         </div>
     </nav>
+
 </body>
 
 </html>
