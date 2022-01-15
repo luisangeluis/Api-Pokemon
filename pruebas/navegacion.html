@@ -19,92 +19,134 @@
             margin-right: auto;
         }
 
-        .nav {
-            position: relative;
+        .main-header {
+            /* position: relative; */
             background-color: lightgray;
         }
 
-        ul {
-            padding: 0;
-        }
-
-        /*navegacion principal*/
-        .nav .contenedor {
+        /*header principal*/
+        .main-header .contenedor {
             display: flex;
-            /* flex-wrap: wrap; */
+            box-sizing: border-box;
             height: 5em;
             text-align: center;
             justify-content: center;
             align-items: center;
-
         }
 
-        .nav_titulo {
-            text-align: center;
+        /*navegacion principal*/
+        .main-nav {
+            display: flex;
+        }
+
+        li {
+            list-style: none;
         }
 
         .nav_ul,
         .nav_ul-right {
+
             display: flex;
             margin: 0 1em;
-            
-
-        }
-        .nav_ul li,
-        .nav_ul-right li {
-            list-style: none;
-            padding: 0 .2em;
-
+            padding: 0;
         }
 
-        .nav_ul {
-            margin-right: auto;
-        }
-
-        .nav_ul-right {
-            margin-left: auto;
+        .desplegar-btn {
+            display: none;
         }
 
         /*Menor a 850 px*/
-
         @media screen and (max-width: 850px) {
-            .nav_ul,
-            .nav_ul-right {
-                display: none;
+            .main-header .contenedor {
+                display: grid;
 
-                margin: 0 1em;
             }
 
-            .d-none{
+            .main-nav {
+                display: none;
+            }
+
+            .main-nav ul {
+                display: grid;
+            }
+            .desplegar-btn {
+                display: block;
+            }
+            
+            /*clases grales.*/
+            .d-none {
                 display: none;
 
+            }
+
+            .d-flex {
+                display: flex;
+            }
+            .d-block{
+                display: block;
             }
         }
-
-
     </style>
 </head>
 
 <body>
 
-    <nav class="nav">
+    <header class="main-header">
         <div class="contenedor">
             <h1 class="nav_titulo">Menu de navegacion</h1>
-            <ul class="nav_ul">
-                <li>opcion 1</li>
-                <li>opcion 2</li>
-                <li>opcion 3</li>
-                <li>opcion 4</li>
-            </ul>
-            <ul class="nav_ul-right">
-                <li>opcion 5</li>
-                <li>opcion 6</li>
-                <li>opcion 7</li>
-            </ul>
-            <button></button>
-        </div>
-    </nav>
 
+            <nav class="main-nav">
+                <ul class="nav_ul">
+                    <li>opcion 1</li>
+                    <li>opcion 2</li>
+                    <li>opcion 3</li>
+                    <li>opcion 4</li>
+                </ul>
+                <ul class="nav_ul-right">
+                    <li>opcion 5</li>
+                    <li>opcion 6</li>
+                    <li>opcion 7</li>
+                </ul>
+            </nav>
+
+            <button class="desplegar-btn" style="position: absolute;">Desplegar</button>
+        </div>
+
+    </header>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+        integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $(document).ready(function () {
+            let btnDesplegar = $('.desplegar-btn');
+            $(btnDesplegar).click(function () {
+                // alert('hola');
+                $('.main-nav').toggleClass('d-block');
+
+
+            })
+            $(window).resize(function () {
+                let width = $(window).width();
+                if (width >= 850){
+                    $('.main-nav').addClass('d-flex');
+                    $('.main-nav').removeClass('d-none');
+                }else{
+                    $('.main-nav').addClass('d-none');
+                    $('.main-nav').removeClass('d-flex');
+
+                    $('.desplegar-btn').addClass('d-block');
+                }
+                    
+
+            });
+
+        });
+
+
+
+
+    </script>
 </body>
 
 </html>
