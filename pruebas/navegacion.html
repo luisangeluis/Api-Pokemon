@@ -13,79 +13,85 @@
             margin: 0;
         }
 
-        .contenedor {
-            width: 80%;
-            margin-left: auto;
-            margin-right: auto;
-        }
+        .contenedor{
+            /* margin-left: auto;
+            margin-right: auto; */
+            justify-content: center; 
 
-        .main-header {
-            /* position: relative; */
-            background-color: lightgray;
         }
-
-        /*header principal*/
-        .main-header .contenedor {
-            display: flex;
-            box-sizing: border-box;
-            height: 5em;
-            text-align: center;
-            justify-content: center;
-            align-items: center;
-        }
-
-        /*navegacion principal*/
-        .main-nav {
-            display: flex;
-        }
-
-        li {
+        .nav_ul,
+        .nav_ul-right {
             list-style: none;
         }
 
-        .nav_ul,
-        .nav_ul-right {
-
-            display: flex;
+        /*main header*/
+        .main-header {
             margin: 0 1em;
-            padding: 0;
+            background-color: gray;
+
         }
 
+        .main-header .contenedor {
+            display: flex;
+            padding: 1em 1em;
+            position: relative;
+        }
+
+        .main-nav{
+            /* display: flex; */
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            
+        }
+
+        .nav_ul,.nav_ul-right{
+            display: flex;
+            align-items: center;
+            /* padding: 0; */
+        }
+        .nav_ul-right{
+            margin-left: auto;
+            text-align: right;
+        }
+
+        /*boton desplegar*/
         .desplegar-btn {
+            position: absolute;
+            right: 1em;
+            top: 1.5em;
             display: none;
         }
 
-        /*Menor a 850 px*/
-        @media screen and (max-width: 850px) {
-            .main-header .contenedor {
-                display: grid;
-
+        @media(max-width:850px){
+            .main-header .contenedor{
+                flex-direction: column;
             }
 
-            .main-nav {
+            .main-nav{
                 display: none;
+                flex-direction: column;
+                align-self: flex-start;
+                
             }
 
-            .main-nav ul {
-                display: grid;
-            }
-            .desplegar-btn {
-                display: block;
-            }
-            
-            /*clases grales.*/
-            .d-none {
-                display: none;
-
-            }
-
-            .d-flex {
+            .nav_ul,.nav_ul-right{
                 display: flex;
+                flex-direction: column;
             }
-            .d-block{
+
+            .desplegar-btn{
                 display: block;
             }
         }
+        /*clases genericas*/
+        .d-grid{
+            display: grid;
+        }
+
+        .d-flex{
+            display: flex;
+        }
+
     </style>
 </head>
 
@@ -119,27 +125,46 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
         $(document).ready(function () {
-            let btnDesplegar = $('.desplegar-btn');
-            $(btnDesplegar).click(function () {
-                // alert('hola');
-                $('.main-nav').toggleClass('d-block');
 
+            let btnDesplegar = document.querySelector('.desplegar-btn');
+            let mainNav = document.querySelector('.main-nav');
+            let ancho = document.documentElement.clientWidth;
+
+            btnDesplegar.addEventListener('click', e => {
+                e.preventDefault();
+                
+                if(ancho<=850)
+                mainNav.classList.toggle('d-flex');
 
             })
-            $(window).resize(function () {
-                let width = $(window).width();
-                if (width >= 850){
-                    $('.main-nav').addClass('d-flex');
-                    $('.main-nav').removeClass('d-none');
-                }else{
-                    $('.main-nav').addClass('d-none');
-                    $('.main-nav').removeClass('d-flex');
-
-                    $('.desplegar-btn').addClass('d-block');
+            addEventListener('resize',e=>{
+                ancho = document.documentElement.clientWidth;
+                console.log(ancho);
+                if(ancho>850){
+                    mainNav.classList.remove('d-grid'); 
                 }
-                    
+            })
+            // let btnDesplegar = $('.desplegar-btn');
+            // $(btnDesplegar).click(function () {
+            //     // alert('hola');
+            //     $('.main-nav').toggleClass('d-block');
 
-            });
+
+            // })
+            // $(window).resize(function () {
+            //     let width = $(window).width();
+            //     if (width >= 850){
+            //         $('.main-nav').addClass('d-flex');
+            //         $('.main-nav').removeClass('d-none');
+            //     }else{
+            //         $('.main-nav').addClass('d-none');
+            //         $('.main-nav').removeClass('d-flex');
+
+            //         $('.desplegar-btn').addClass('d-block');
+            //     }
+
+
+            // });
 
         });
 
