@@ -1,36 +1,88 @@
 *{
     margin: 0;
 }
-html{
-    /* background-color: rgba(0,0,0,.8); */
-    
-    
 
-}
 .contenedor{
-    width: 85%;
+    width: 90%;
     margin-left: auto;
     margin-right: auto;
 }
+ul{
+    padding: 0;
+}
+li{
+    list-style: none;
+    
+}
+.d-grid{
+    display: block;
+}
 /*Navegacion principal*/
-.main-nav{
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(min(100%,10em),1fr));
+header{
+    background-color: lightsalmon;
+}
 
-    justify-items: center;
+.header .contenedor{
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    justify-content: center;
     align-items: center;
     text-align: center;
+    padding: 1em;
+    position: relative;
+}
 
-    border: solid black 1px;
-    height: 50px;
-    background-color: lightcoral;
+.main-nav{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+
+}
+.desplegar-btn{
+    display: none;
 }
 .main-ul{
     display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    margin: 1em 1em;
 }
-.main-nav li{
-    list-style: none;
-    padding: 0 10px;
+.main-ul li{
+    margin:.1em;
+}
+.left-ul{
+    justify-content: left;
+}
+.right-ul{
+    align-items: right;
+    justify-content: right;
+}
+
+@media(max-width:850px){
+    .header .contenedor{
+        grid-template-columns: 1fr;
+    }
+    .main-titulo{
+        text-align: left;
+    }
+    .main-nav{
+        display: none;
+
+        grid-template-columns: 1fr;
+        justify-items: left;
+    }
+    .desplegar-btn{
+        display: block;
+        position: absolute;
+        right: 1em;
+        top:2em;
+    }
+    .main-ul{
+        display: grid;
+        margin-top: 0;
+        margin-bottom: 0;
+        padding: 0 1em;
+    }
 }
 
 /*Primeros veinte pokemon*/

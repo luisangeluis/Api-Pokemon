@@ -1,3 +1,11 @@
+const btnDesplegar = document.querySelector('.desplegar-btn');
+const mainNav = document.querySelector('.main-nav');
+btnDesplegar.addEventListener('click',()=>{
+    
+    mainNav.classList.toggle('d-grid'); 
+
+})
+
 const btnGetApi = document.querySelector('#get-api');
 const divFotos20Pokemon = document.querySelector('.primeros-veinte_fotos');
 
