@@ -8,80 +8,91 @@
     margin-right: auto;
 }
 ul{
-    padding: 0;
+    /* padding: 0; */
 }
 li{
     list-style: none;
     
 }
+.d-flex{
+    display: flex;
+}
 .d-grid{
-    display: block;
+    display: grid;
 }
 /*Navegacion principal*/
 header{
     background-color: lightsalmon;
 }
 
-.header .contenedor{
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 1em;
-    position: relative;
+.desplegar-btn{
+    display: none;
+    position: absolute;
+    right:.1em;
+    top:1.2em;
 }
 
+.header .contenedor{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    padding: .3em;
+    margin: 0 .5em;
+
+}
+
+.main-titulo{
+    padding: .3em;
+    /* text-align: center; */
+    justify-content: center;
+    align-items: center;
+}
 .main-nav{
     display: grid;
     grid-template-columns: repeat(2,1fr);
 
-}
-.desplegar-btn{
-    display: none;
-}
-.main-ul{
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: center;
-    margin: 1em 1em;
-}
-.main-ul li{
-    margin:.1em;
-}
-.left-ul{
-    justify-content: left;
-}
-.right-ul{
-    align-items: right;
-    justify-content: right;
+    
 }
 
-@media(max-width:850px){
+.main-ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    font-size: 1em;
+    padding: 0 1em;
+
+
+}
+.main-ul li{
+    /* padding: 0 .5em; */
+    text-align: center;
+    padding: 0 .3em;
+    margin: 0 .2em;
+    word-break: normal;
+
+    
+}
+.right-ul{
+    justify-content: right;
+}
+@media (max-width: 850px){
+    .desplegar-btn{
+        display: block;
+    } 
+
     .header .contenedor{
-        grid-template-columns: 1fr;
-    }
-    .main-titulo{
-        text-align: left;
+        flex-direction: column;
     }
     .main-nav{
         display: none;
+        flex-direction: column;
+        align-self: flex-start;
+    }
 
-        grid-template-columns: 1fr;
-        justify-items: left;
-    }
-    .desplegar-btn{
-        display: block;
-        position: absolute;
-        right: 1em;
-        top:2em;
-    }
     .main-ul{
-        display: grid;
-        margin-top: 0;
-        margin-bottom: 0;
-        padding: 0 1em;
+        flex-direction: column;
     }
 }
 

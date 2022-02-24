@@ -2,8 +2,17 @@ const btnDesplegar = document.querySelector('.desplegar-btn');
 const mainNav = document.querySelector('.main-nav');
 btnDesplegar.addEventListener('click',()=>{
     
-    mainNav.classList.toggle('d-grid'); 
+    mainNav.classList.toggle('d-flex');
+    // mainNav.setAttribute('style','display:grid'); 
 
+})
+
+addEventListener('resize',e=>{
+    ancho = document.documentElement.clientWidth;
+    console.log(ancho);
+    if(ancho>850){
+        mainNav.classList.remove('d-flex'); 
+    }
 })
 
 const btnGetApi = document.querySelector('#get-api');
