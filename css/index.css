@@ -1,60 +1,76 @@
-*{
+* {
     margin: 0;
 }
 
-.contenedor{
+.contenedor {
     width: 90%;
     margin-left: auto;
     margin-right: auto;
 }
-ul{
+
+ul {
     /* padding: 0; */
 }
-li{
+
+li {
     list-style: none;
-    
 }
-.d-flex{
+
+.d-flex {
     display: flex;
 }
-.d-grid{
+
+.d-grid {
     display: grid;
 }
+
+
+/***********************/
+
+
 /*Navegacion principal*/
-header{
+
+header {
     background-color: lightsalmon;
 }
 
-.desplegar-btn{
+.desplegar-btn {
     display: none;
     position: absolute;
-    right:.1em;
-    top:1.2em;
+    right: .1em;
+    top: 1.2em;
 }
 
-.header .contenedor{
+
+/************************/
+
+
+/*DISPLAY FLEX*/
+
+
+/************************/
+
+
+/* .header .contenedor {
     display: flex;
     position: relative;
     justify-content: center;
     padding: .3em;
-    margin: 0 .5em;
-
 }
 
-.main-titulo{
+.main-titulo {
     padding: .3em;
-    /* text-align: center; */
+    /* text-align: center; 
     justify-content: center;
     align-items: center;
 }
-.main-nav{
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
 
-    
+.main-nav {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
 }
 
-.main-ul{
+.main-ul {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -62,53 +78,126 @@ header{
     text-align: center;
     font-size: 1em;
     padding: 0 1em;
-
-
 }
-.main-ul li{
-    /* padding: 0 .5em; */
+
+.main-ul li {
+    padding: 0 .5em; 
     text-align: center;
     padding: 0 .3em;
     margin: 0 .2em;
     word-break: normal;
-
-    
 }
-.right-ul{
+
+.right-ul {
     justify-content: right;
 }
-@media (max-width: 850px){
-    .desplegar-btn{
-        display: block;
-    } 
 
-    .header .contenedor{
+
+media del header
+
+@media (max-width: 850px) {
+    .desplegar-btn {
+        display: block;
+    }
+    .header .contenedor {
         flex-direction: column;
     }
-    .main-nav{
+    .main-nav {
         display: none;
         flex-direction: column;
         align-self: flex-start;
     }
-
-    .main-ul{
+    .main-ul {
         flex-direction: column;
+    }
+} */
+
+
+/************************/
+
+
+/*FIN DISPLAY FLEX*/
+
+
+/************************/
+
+
+/************************/
+
+
+/* DISPLAY GRID*/
+
+
+/************************/
+
+.header .contenedor {
+    display: grid;
+    grid-template-columns: 1fr 2.5fr;
+    justify-content: center;
+    min-height: 3em;
+}
+
+.header .main-titulo {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header .main-nav {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.main-nav .main-ul {
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    padding: 0;
+}
+
+.right-ul {
+    justify-content: right;
+}
+
+@media (max-width: 900px) {
+    .header .contenedor {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .header .main-nav {
+        /* display: flex;
+        flex-direction: column; */
+        grid-template-columns: 1fr;
+        height: 0;
+        overflow: hidden;
+    }
+    .main-nav .main-ul {
+        display: grid;
     }
 }
 
+*/
+/************************/
+
+
+/*FIN DISPLAY GRID*/
+
+
+/************************/
+
+
 /*Primeros veinte pokemon*/
 
-.primeros-veinte_fotos{
-   display: grid;
-   grid-template-columns: repeat(auto-fill,minmax(min(100%,7rem),1fr));
-   /* overflow:auto; */
-   
-   
-   /* grid-auto-rows: 50%;  */
+.primeros-veinte_fotos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 7rem), 1fr));
+    /* overflow:auto; */
+    /* grid-auto-rows: 50%;  */
 }
 
-.div-img{
-    
+.div-img {
     justify-content: center;
     text-align: center;
     align-content: center;
@@ -117,9 +206,11 @@ header{
     position: relative;
     z-index: 2;
 }
-.div-img img{
+
+.div-img img {
     width: 100%;
 }
+
 
 /* .modal-ventana{
     display: none;
@@ -144,7 +235,9 @@ header{
     display: flex;
 } */
 
+
 /*VENTANA MODAL*/
+
 .modal-ventana {
     display: none;
     position: fixed;
@@ -176,7 +269,3 @@ header{
 .d-none {
     display: none;
 }
-
-
-
-

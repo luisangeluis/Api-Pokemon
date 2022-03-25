@@ -1,17 +1,17 @@
 const btnDesplegar = document.querySelector('.desplegar-btn');
 const mainNav = document.querySelector('.main-nav');
-btnDesplegar.addEventListener('click',()=>{
-    
+btnDesplegar.addEventListener('click', () => {
+
     mainNav.classList.toggle('d-flex');
     // mainNav.setAttribute('style','display:grid'); 
 
 })
 
-addEventListener('resize',e=>{
+addEventListener('resize', e => {
     ancho = document.documentElement.clientWidth;
     console.log(ancho);
-    if(ancho>850){
-        mainNav.classList.remove('d-flex'); 
+    if (ancho > 850) {
+        mainNav.classList.remove('d-flex');
     }
 })
 
@@ -21,20 +21,20 @@ const divFotos20Pokemon = document.querySelector('.primeros-veinte_fotos');
 const fragment = document.createDocumentFragment();
 
 const getApi = async pURL => {
-    const info = await axios({
-        method: 'GET',
-        url: pURL
-    });
-    return info;
-}
-//Mostrar los primeros 20 pokemon
+        const info = await axios({
+            method: 'GET',
+            url: pURL
+        });
+        return info;
+    }
+    //Mostrar los primeros 20 pokemon
 btnGetApi.addEventListener('click', () => {
     //Entendi que para manejo de errores con el catch se pueden manejar
     const divImg = document.querySelector('.primeros-veinte_fotos');
 
     getApi('https://pokeapi.co/api/v2/pokemon')
 
-        .then(res => {
+    .then(res => {
             let pokemons = [...res.data.results]
             console.log(pokemons);
 
@@ -87,12 +87,12 @@ const getTemplateModal = (pJson) => {
     return templateModal;
 }
 
-const activarBTNCerrar=(pParentELement, pSonElement)=>{
-    
-    if(document.querySelector('.modal-ventana')!=null){
+const activarBTNCerrar = (pParentELement, pSonElement) => {
+
+    if (document.querySelector('.modal-ventana') != null) {
         const btnCloseModal = document.querySelector('.close-modal');
 
-        btnCloseModal.addEventListener('click',()=>{
+        btnCloseModal.addEventListener('click', () => {
             pParentELement.removeChild(pSonElement);
         })
     }
@@ -109,24 +109,19 @@ divFotos20Pokemon.addEventListener('click', (e) => {
 
         getApi(`https://pokeapi.co/api/v2/pokemon/${nombrePokemon}`)
 
-            .then(result => {
-                console.log(result);
-                let template = getTemplateModal(result);
-                primerosVeinte.appendChild(template);
+        .then(result => {
+            console.log(result);
+            let template = getTemplateModal(result);
+            primerosVeinte.appendChild(template);
 
 
-                const modal = primerosVeinte.querySelector('.modal-ventana');
+            const modal = primerosVeinte.querySelector('.modal-ventana');
 
-                modal.classList.add('d-flex');
-                activarBTNCerrar(primerosVeinte,modal);
-            }).catch(error => console.log(error.message))
+            modal.classList.add('d-flex');
+            activarBTNCerrar(primerosVeinte, modal);
+        }).catch(error => console.log(error.message))
 
     } else {
         // console.log('no es un img');
     }
 })
-
-
-
-
-
