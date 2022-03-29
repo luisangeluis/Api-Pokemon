@@ -1,19 +1,26 @@
 const btnDesplegar = document.querySelector('.desplegar-btn');
 const mainNav = document.querySelector('.main-nav');
+
 btnDesplegar.addEventListener('click', () => {
 
-    mainNav.classList.toggle('d-flex');
-    // mainNav.setAttribute('style','display:grid'); 
+    //GRID
+    mainNav.classList.toggle('d-block');
 
-})
+    // mainNav.setAttribute('style', 'display:block');
+
+
+
+});
 
 addEventListener('resize', e => {
     ancho = document.documentElement.clientWidth;
     console.log(ancho);
-    if (ancho > 850) {
-        mainNav.classList.remove('d-flex');
-    }
+    // if (ancho < 900) {
+    //     mainNav.classList.add('d-none');
+    // }
 })
+
+
 
 const btnGetApi = document.querySelector('#get-api');
 const divFotos20Pokemon = document.querySelector('.primeros-veinte_fotos');
