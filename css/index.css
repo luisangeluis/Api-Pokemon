@@ -29,8 +29,8 @@ header {
 .desplegar-btn {
     display: none;
     position: absolute;
-    right: .1em;
-    top: 1.2em;
+    right: 0.6em;
+    top: 1em;
 }
 
 
@@ -47,17 +47,27 @@ header {
     justify-content: space-around;
     align-items: center;
     flex-direction: row;
+    min-height: 2em;
 }
 
-.header .main-nav {
+.header_main-nav {
     display: flex;
     justify-content: space-between;
     width: 70%;
 }
 
-.main-nav .main-ul {
+.main-titulo {
+    margin: .2em;
+    /* padding: .5em; */
+}
+
+.header_main-nav .main-ul {
     display: flex;
     justify-content: space-between;
+}
+
+.main-ul li {
+    padding: 0 .2em;
 }
 
 .left-ul {
@@ -68,15 +78,15 @@ header {
 @media(max-width:900px) {
     .header .contenedor {
         flex-direction: column;
-        justify-content: flex-start;
         align-items: flex-start;
         text-align: left;
     }
-    .header .main-nav {
+    .header_main-nav {
         flex-direction: column;
         display: none;
+        padding: .5em 0;
     }
-    .main-nav .main-ul {
+    .header_main-nav .main-ul {
         display: block;
         justify-content: space-between;
         left: 0;
@@ -172,7 +182,11 @@ padding: 0;
 
 .primeros-veinte_fotos {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(min(100%, 7rem), 1fr));
+    /*min()busca el valor mas pequeño entre sus parametros y lo toma como su valor
+    minmax()si el 2do parametro es menor que el 1ro lo ignora y toma el primero como su valor
+    */
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 12.5em), 1fr));
+    /* grid-template-columns: repeat(auto-fill, minmax(min(100%, 10em), 1fr)); */
     /* overflow:auto; */
     /* grid-auto-rows: 50%;  */
 }

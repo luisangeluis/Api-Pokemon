@@ -1,10 +1,12 @@
 const btnDesplegar = document.querySelector('.desplegar-btn');
-const mainNav = document.querySelector('.main-nav');
+const mainNav = document.querySelector('.header_main-nav');
 
+//HEADER
+//Navegacion principal
 btnDesplegar.addEventListener('click', () => {
 
     //GRID
-    mainNav.classList.toggle('d-block');
+    mainNav.classList.toggle('d-flex');
 
     // mainNav.setAttribute('style', 'display:block');
 
@@ -15,13 +17,12 @@ btnDesplegar.addEventListener('click', () => {
 addEventListener('resize', e => {
     ancho = document.documentElement.clientWidth;
     console.log(ancho);
-    // if (ancho < 900) {
-    //     mainNav.classList.add('d-none');
-    // }
+    if (ancho > 900) {
+        mainNav.classList.remove('d-flex');
+    }
 })
 
-
-
+//API POKEMON
 const btnGetApi = document.querySelector('#get-api');
 const divFotos20Pokemon = document.querySelector('.primeros-veinte_fotos');
 
