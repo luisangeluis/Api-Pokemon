@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animaciones</title>
+
+    <style>
+        .container {
+            background-color: gray;
+            /* min-height: 0em; */
+            height: 0;
+            /* display: none; */
+            transition: all ease-out 1s;
+        }
+        
+        .d-block {
+            /* display: flex; */
+            height: 15em;
+            /* display: none; */
+            /* animation: suave .5s; */
+            /* background-color: black; */
+        }
+        /* .container:hover {
+            animation: suave 1s;
+            background-color: lightcoral;
+            opacity: 1;
+        } */
+        
+        @keyframes suave {
+            0% {
+                transform: translateY(0)
+            }
+            100% {
+                transform: translateY(100%)
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <button id="animar">animar</button>
+
+    <div class="container">
+
+        <section class="item">soy un item</section>
+        <section class="item">soy un item</section>
+        <section class="item">soy un item</section>
+        <section class="item">soy un item</section>
+
+    </div>
+
+    <script>
+        const btnAnimar = document.querySelector('#animar');
+        const container = document.querySelector('.container');
+
+        btnAnimar.addEventListener('click', e => {
+            console.log('hoa');
+            container.classList.toggle('d-block');
+            // container.classList.toggle('animar');
+
+        });
+    </script>
+</body>
+
+</html>

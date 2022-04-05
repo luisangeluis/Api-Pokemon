@@ -90,6 +90,7 @@ header {
         display: block;
         justify-content: space-between;
         left: 0;
+        transition: all 2s;
     }
     .desplegar-btn {
         display: block;
@@ -258,7 +259,7 @@ padding: 0;
 /*CLASES VARIAS*/
 
 .d-flex {
-    display: flex;
+    display: block;
 }
 
 .d-grid {
