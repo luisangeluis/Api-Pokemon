@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -9,9 +9,8 @@
 
     <style>
         * {
-            padding: 0;
-            margin: 0;
             box-sizing: border-box;
+            padding: 0;
         }
         
         li {
@@ -20,77 +19,46 @@
         
         .contenedor {
             width: 90%;
+            background-color: lightskyblue;
+            margin: 0 auto;
         }
         
         .header .contenedor {
             display: grid;
             grid-template-columns: 1fr 2fr;
-            min-height: 5em;
-            background-color: lightblue;
-            margin: 0 auto;
-        }
-        
-        .main-titulo {
-            /* justify-items: center;
-            align-items: center; */
-            text-align: center;
-            white-space: nowrap;
-            display: flex;
-            justify-content: center;
-            align-items: center;
         }
         
         .main_btn-desplegar {
             position: absolute;
-            display: none;
-            top: 2.3em;
-            right: 6em;
+            top: 1em;
+            right: 1em;
+        }
+        
+        .main-titulo {
+            text-align: center;
         }
         
         .header_main-nav {
-            display: flex;
-            justify-content: space-between;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
         }
         
-        .header_main-nav .main-ul {
+        .main-ul {
             display: flex;
-            justify-items: center;
-            align-items: center;
-            margin: 0 2em;
-        }
-        
-        .main-ul li {
-            padding: 0 .5em;
-            white-space: nowrap
         }
         
         @media(max-width:900px) {
             .header .contenedor {
                 grid-template-columns: 1fr;
             }
-            .main-titulo {
-                margin: .5em 1em;
-                padding: .2em 0;
-                justify-content: flex-start;
-                /* background-color: blue; */
-            }
-            .main_btn-desplegar {
-                display: block;
-            }
             .header_main-nav {
-                /* display: grid; */
                 grid-template-columns: 1fr;
                 display: none;
             }
-            .header_main-nav .main-ul {
-                display: unset;
-                justify-content: left;
-            }
-            .main-ul li {
-                padding: .1em 0;
+            .main-ul {
+                flex-direction: column;
             }
         }
-        /*CLASES VARIAS*/
         
         .d-grid {
             display: grid;
@@ -101,7 +69,7 @@
 <body>
     <header class="header">
         <div class="contenedor">
-            <h1 class="main-titulo">Api de Pokemon</h1>
+            <h1 class="main-titulo">API DE POKEMON</h1>
             <nav class="header_main-nav">
                 <ul class="main-ul left-ul">
                     <li>Opcion 1</li>
@@ -131,7 +99,7 @@
         addEventListener('resize', () => {
             const screenWidth = document.documentElement.clientWidth;
             if (screenWidth > 900) {
-                mainNav.classList.remove('d-grid');
+                // mainNav.classList.add('d-none');
             }
         })
     </script>
