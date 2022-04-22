@@ -11,58 +11,116 @@
         * {
             box-sizing: border-box;
             padding: 0;
+            /* margin: 0; */
         }
-        
+
         li {
             list-style: none;
         }
-        
+
         .contenedor {
             width: 90%;
             background-color: lightskyblue;
             margin: 0 auto;
         }
+
+        /*NAVEGACION*/
         
+
         .header .contenedor {
             display: grid;
             grid-template-columns: 1fr 2fr;
+            white-space: nowrap;
         }
-        
+
         .main_btn-desplegar {
             position: absolute;
-            top: 1em;
-            right: 1em;
+
+            display: none;
         }
-        
+
         .main-titulo {
             text-align: center;
+            margin: .2em;
+            padding:.2em;
         }
-        
+
         .header_main-nav {
             display: grid;
             grid-template-columns: 1fr 1fr;
+
         }
-        
+
+        .left-ul {
+            justify-self: start;
+            align-self: center;
+        }
+
+        .right-ul {
+            justify-self: end;
+            align-self: center;
+            margin: 0 2em;
+
+        }
+
         .main-ul {
             display: flex;
         }
-        
+
         @media(max-width:900px) {
             .header .contenedor {
                 grid-template-columns: 1fr;
             }
+
+            .main_btn-desplegar {
+                display: block;
+                top: 2em;
+                right: 7%;
+            }
+
+            .main-titulo {
+                text-align: left;
+                margin: .2em 0;
+                padding: .2em .5em;
+            }
+
             .header_main-nav {
                 grid-template-columns: 1fr;
                 display: none;
+                /*valores arriba, abajo y horizontal*/
+                padding: 0 1em 1em;
+
+                /* transition: all ease-in-out 1s; */
+
             }
+
+            
+
             .main-ul {
                 flex-direction: column;
             }
+            .main-ul li{
+                padding: .2em;
+            }
+
+            .left-ul {
+                justify-self: start;
+                align-self: center;
+                margin: 0;
+            }
+
+            .right-ul {
+                justify-self: start;
+                margin: 0;
+                
+            }
         }
-        
+
         .d-grid {
             display: grid;
+
         }
+        
     </style>
 </head>
 
@@ -84,23 +142,36 @@
 
             </nav>
         </div>
+        <button class="main_btn-desplegar">Desplegar</button>
+
     </header>
-    <button class="main_btn-desplegar">Desplegar</button>
 
-
+    <script src="./../js/jquery.js"></script>
     <script>
         const btnDesplegar = document.querySelector('.main_btn-desplegar');
         const mainNav = document.querySelector('.header_main-nav');
 
-        btnDesplegar.addEventListener('click', () => {
-            mainNav.classList.toggle('d-grid');
-        })
+        // btnDesplegar.addEventListener('click', () => {
+        //     mainNav.classList.toggle('d-grid');
+        // })
 
         addEventListener('resize', () => {
             const screenWidth = document.documentElement.clientWidth;
             if (screenWidth > 900) {
                 // mainNav.classList.add('d-none');
+                mainNav.setAttribute('style','display:grid');
+            }else{
+                mainNav.setAttribute('style','display:none');
+
             }
+        })
+
+        //Funciones jquery
+        $(document).ready(function(){
+            console.log('hola');
+            $(btnDesplegar).click(function(e){
+                $('.header_main-nav').slideToggle(600);
+            })
         })
     </script>
 </body>
