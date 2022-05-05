@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animacion nav</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        /***********Main nav************/
+        /*******************************/
+        .main-nav {
+
+            background-color: steelblue;
+
+        }
+
+        .header-container {
+            display: flex;
+            margin: .5rem;
+            padding: .5rem;
+            background-color: skyblue;
+            justify-content: space-between;
+        }
+
+        .nav-ul {
+            display: flex;
+        }
+
+        .item-ul {
+            margin: .5rem;
+            padding: .5rem;
+        }
+
+        @media(max-width:850px) {
+
+            .header-container {
+               flex-direction: column;
+               overflow: hidden;
+            }
+
+            .nav-ul {
+                flex-direction: column;
+                /* margin-top: -500px; */
+                transition: 1s ;
+
+            }
+        }
+
+        .nav-animation{
+            margin-top: 0;
+            transition: margin-top 1s ;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="container header-container">
+            <h1>hola</h1>
+            <nav class="main-nav">
+                <ul class="nav-ul">
+                    <li class="item-ul">opcion 1</li>
+                    <li class="item-ul">opcion 2</li>
+                    <li class="item-ul">opcion 3</li>
+                    <li class="item-ul">opcion 4</li>
+                </ul>
+            </nav>
+        </div>
+
+        <button class="nav-btn">menu</button>
+    </header>
+
+
+    <script>
+        const btnNav = document.querySelector('.nav-btn');
+
+        btnNav.addEventListener('click',()=>{
+            document.querySelector('.nav-ul').classList.toggle('nav-animation');
+        });
+    </script>
+</body>
+
+</html>

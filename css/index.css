@@ -85,6 +85,7 @@ header {
         flex-direction: column;
         display: none;
         padding: .5em 0;
+
     }
     .header_main-nav .main-ul {
         display: block;
@@ -260,6 +261,9 @@ padding: 0;
 
 .d-flex {
     display: block;
+    
+    transition: display 2s;
+
 }
 
 .d-grid {
