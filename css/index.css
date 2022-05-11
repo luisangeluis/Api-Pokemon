@@ -1,5 +1,7 @@
 * {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 .contenedor {
@@ -16,172 +18,48 @@ li {
     list-style: none;
 }
 
-
-/***********************/
-
-
-/*Navegacion principal*/
-
-header {
-    background-color: lightsalmon;
-}
-
-.desplegar-btn {
-    display: none;
-    position: absolute;
-    right: 0.6em;
-    top: 1em;
-}
-
-
+/********Header**********/
 /************************/
-
-
-/*DISPLAY FLEX*/
-
-
-/************************/
-
-.header .contenedor {
+.header .contenedor{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    flex-direction: row;
-    min-height: 2em;
-}
-
-.header_main-nav {
-    display: flex;
-    justify-content: space-between;
-    width: 70%;
-}
-
-.main-titulo {
-    margin: .2em;
-    /* padding: .5em; */
-}
-
-.header_main-nav .main-ul {
-    display: flex;
-    justify-content: space-between;
-}
-
-.main-ul li {
-    padding: 0 .2em;
-}
-
-.left-ul {
+    padding: 1rem;
+    min-height: 5rem;
     position: relative;
-    left: -5%;
+    background-color: lightsalmon;
+    border-radius: 5px;
 }
 
-@media(max-width:900px) {
-    .header .contenedor {
-        flex-direction: column;
-        align-items: flex-start;
-        text-align: left;
-    }
-    .header_main-nav {
-        flex-direction: column;
-        display: none;
-        padding: .5em 0;
-
-    }
-    .header_main-nav .main-ul {
-        display: block;
-        justify-content: space-between;
-        left: 0;
-        transition: all 2s;
-    }
-    .desplegar-btn {
-        display: block;
-    }
-}
-
-
-/************************/
-
-
-/*FIN DISPLAY FLEX*/
-
-
-/************************/
-
-
-/************************/
-
-
-/* DISPLAY GRID*/
-
-
-/************************/
-
-
-/* .header .contenedor {
-    display: grid;
-    grid-template-columns: 1fr 2.5fr;
-    justify-content: center;
-    min-height: 3em;
-}
-
-.header .main-titulo {
+.main-titulo{
     text-align: center;
+    padding: 1rem;
+    /* margin: 1rem auto; */
+}
+.header_main-nav{
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-grow: 1;
+    justify-content: space-around;
+    /* flex-grow: 1; */
 }
 
-.header .main-nav {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-}
-
-.main-nav .main-ul {
+.main-ul{
     display: flex;
-    /* justify-content: center; 
-
-align-items: center;
-padding: 0;
-
 }
-.right-ul {
-    justify-content: right;
+
+.main-ul li{
+    padding: 1rem;
 }
-@media (max-width: 900px) {
-    .header .contenedor {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    
-    .header_main-nav {
-        grid-template-columns: 1fr;
-        display: none;
-        
-    }
-    
-    .main-nav .main-ul {
-        display: grid;
-    }
-    
-    .desplegar-btn {
-        display: block;
-    }
+
+.header .desplegar-btn{
+    position: absolute;
+    display: none;
+    top:2rem;
+    right: 2rem;
 }
-*/
-
-
-/************************/
-
-
-/*FIN DISPLAY GRID*/
-
-
-/************************/
-
 
 /*Primeros veinte pokemon*/
-
+/*************************/
 .primeros-veinte_fotos {
     display: grid;
     /*min()busca el valor mas pequeño entre sus parametros y lo toma como su valor
@@ -227,11 +105,7 @@ padding: 0;
 
 }
 
-
-
-
 /*VENTANA MODAL*/
-
 .modal-ventana {
     display: none;
     position: fixed;
@@ -280,4 +154,23 @@ padding: 0;
 
 .d-none {
     display: none;
+}
+
+/**********Media querys**********/
+/********************************/
+
+@media only screen and (max-width:992px){
+    
+    .header .contenedor,.header_main-nav,.main-ul{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .main-titulo{
+        text-align: left;
+    }
+
+    .main-ul li{
+        padding: .5rem 1rem;
+    }
 }

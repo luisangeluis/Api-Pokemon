@@ -6,7 +6,7 @@ const mainNav = document.querySelector('.header_main-nav');
 btnDesplegar.addEventListener('click', () => {
 
     //GRID
-    mainNav.classList.toggle('d-flex');
+    mainNav.classList.toggle('main-nav_show');
 
     // mainNav.setAttribute('style', 'display:block');
 
